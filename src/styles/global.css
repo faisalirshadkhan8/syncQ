@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+    body {
+        font-family: 'Inter', sans-serif;
+        @apply antialiased text-slate-900 bg-white;
+    }
+}
+
+/* ============================================
+   ROGUE COSMIC - TEAL THEME
+   Light Mode Foundation
+   ============================================ */
+
+@layer base {
+    :root {
+        /* COLOR TOKENS */
+        --color-bg-base: #FFFFFF;
+        --color-bg-elevated: #F9FAFB;
+        /* slate-50 */
+        --color-bg-floating: #FFFFFF;
+        --color-bg-surface: #F3F4F6;
+        /* slate-100 */
+        --color-bg-hover: #F1F5F9;
+
+        --color-text-primary: #111827;
+        /* slate-900 */
+        --color-text-secondary: #4B5563;
+        /* slate-600 */
+        --color-text-tertiary: #9CA3AF;
+        /* slate-400 */
+        --color-text-muted: #6B7280;
+        /* slate-500 */
+
+        --color-border-subtle: #E5E7EB;
+        /* slate-200 */
+        --color-border-default: #D1D5DB;
+        /* slate-300 */
+        --color-border-prominent: #9CA3AF;
+
+        --color-accent: #005149;
+        /* Teal Brand */
+        --color-accent-hover: #006B60;
+        --color-accent-muted: rgba(0, 81, 73, 0.1);
+
+        --color-success: #10b981;
+        --color-success-muted: rgba(16, 185, 129, 0.1);
+
+        --color-error: #f43f5e;
+        --color-error-muted: rgba(244, 63, 94, 0.1);
+
+        --color-warning: #f59e0b;
+
+        /* SPACING & LAYOUT */
+        --max-content-width: 1280px;
+        --header-height: 4rem;
+
+        /* BORDER RADIUS */
+        --radius-sm: 0.375rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+        --radius-full: 9999px;
+
+        /* SHADOWS - Lighter for Light Mode */
+        --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+        --shadow-glow: 0 0 20px rgba(0, 81, 73, 0.15);
+    }
+}
+
+@layer base {
+    html {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--color-bg-base);
+        color: var(--color-text-primary);
+        -webkit-font-smoothing: antialiased;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        @apply bg-white text-slate-900;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-slate-300 rounded-full hover:bg-slate-400;
+        border: 2px solid transparent;
+        background-clip: content-box;
+    }
+}
+
+@layer components {
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-md);
+        font-weight: 500;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        border: 1px solid transparent;
+    }
+
+    .btn:active {
+        transform: scale(0.98);
+    }
+
+    .btn-primary {
+        background-color: var(--color-accent);
+        color: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 81, 73, 0.2);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-accent-hover);
+        box-shadow: 0 6px 8px -1px rgba(0, 81, 73, 0.3);
+    }
+
+    .btn-secondary {
+        background-color: white;
+        color: var(--color-text-secondary);
+        border-color: var(--color-border-default);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--color-bg-hover);
+        color: var(--color-text-primary);
+        border-color: var(--color-border-prominent);
+    }
+
+    .btn-ghost {
+        background-color: transparent;
+        color: var(--color-text-secondary);
+    }
+
+    .btn-ghost:hover {
+        background-color: var(--color-bg-hover);
+        color: var(--color-text-primary);
+    }
+
+    .btn-danger {
+        background-color: #FEF2F2;
+        /* rose-50 */
+        color: var(--color-error);
+        border-color: #FECDD3;
+        /* rose-200 */
+    }
+
+    .btn-danger:hover {
+        background-color: #FFE4E6;
+        /* rose-100 */
+    }
+
+    /* Inputs */
+    .input {
+        width: 100%;
+        background-color: white;
+        border: 1px solid var(--color-border-default);
+        color: var(--color-text-primary);
+        border-radius: var(--radius-md);
+        padding: 0.625rem 1rem;
+        transition: all 0.2s ease;
+    }
+
+    .input:focus {
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 3px var(--color-accent-muted);
+        outline: none;
+    }
+
+    .input-error {
+        border-color: var(--color-error);
+    }
+
+    .input-error:focus {
+        box-shadow: 0 0 0 3px var(--color-error-muted);
+    }
+
+    /* Cards */
+    .card {
+        background-color: white;
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .card-interactive:hover {
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Gradient Text - Updated for Light Mode to be Dark/Teal */
+    .gradient-text {
+        background: linear-gradient(to right, var(--color-accent), #0f766e);
+        /* teal-900 to teal-700 */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+/* Keyframes (kept simple) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
